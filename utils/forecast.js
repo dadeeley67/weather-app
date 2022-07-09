@@ -6,7 +6,7 @@ const forecast = (location, callback) => {
     encodeURIComponent(location) +
     "&units=f";
 
-  request({ url, json: true }, (error, { body }) => {
+  request({ url, json: true }, (error, { body } = {}) => {
     if (error) {
       callback(error, undefined);
     } else if (body.error) {

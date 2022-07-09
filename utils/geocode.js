@@ -6,7 +6,7 @@ const geocode = (address, callback) => {
     encodeURIComponent(address) +
     ".json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoiZGFkZWVsZXk2NyIsImEiOiJjbDViZjE3bmQwNzBoM2RtcGllanA2b3U1In0.v2wZhfR1iQZgDmGCjJ-78w&limit";
 
-  request({ url, json: true }, (error, { body }) => {
+  request({ url, json: true }, (error, { body } = {}) => {
     if (error) {
       callback("There was an error.", undefined);
     } else if (body.features.length === 0) {
